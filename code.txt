@@ -1,0 +1,10 @@
+git config --global user.email "chuvanhuy@gmail.com"
+
+git init
+-----
+
+git add .
+
+git commit -m "Mã nguồn ngày 22/08/2021"
+
+git push origin master
