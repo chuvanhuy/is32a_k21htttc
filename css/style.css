@@ -1,0 +1,53 @@
+body {
+	background: #9bf5ff url(../images/bg-ws-1.jpg) no-repeat center top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: red;
+}
+
+p {
+	color: black;
+}
+
+ul {
+	/*list-style-image: url(../images/list.png)*/
+	list-style-type: square;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: #ffff96;
+}
+
+a:visited {
+	color: #ffff96;
+}
+
+a:hover {
+	color: black;
+}
+
+a:active {
+	color: white;
+}
+
+#tieu_de_chinh {
+	color: red;
+	font-size: 24px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.de_muc_chinh {
+	color: #9F224E;
+	font-size: 18px;
+	font-weight: bolder;
+	font-style: italic;
+	font-family: Arial;
+	text-align: justify;	
+	text-transform: uppercase;
+}
