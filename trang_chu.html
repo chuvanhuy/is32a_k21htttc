@@ -1,7 +1,12 @@
 <html>
 	<head>
 		<title>Trang chủ | Khoa ITDE (Information Technology & Digital Economics)</title>
+		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript">
+			<!-- window.alert("Hello world!!!"); -->
+		</script>
+		<script type="text/javascript" src="js/home.js"></script>
 	</head>
 
 	<body>
@@ -9,5 +14,28 @@
 		<hr>
 		<h3 id="tieu_de_chinh">NỘI DUNG CHÍNH</h3>
 		<p style="text-align: center;"><img src="images/thumb_20210821_diep_ap_1.jpg"></p>
+		<p style="text-align: center;">
+			<button type="button" onclick="document.getElementById('tieu_de_chinh').innerHTML='TRANG CHỦ'">ĐỔI CHỮ</button>
+		</p>
+		<script type="text/javascript">
+			document.write("<h1 style='text-align: center;'>TRANG CHỦ</h1>");
+
+			console.log("Tối nay, 8 giờ ở vườn hoa!!!");
+			console.log("Ngày mai, 12h45 nhớ join học Lập trình Web!!!");
+
+			var x;
+			x = "Lớp: "+"K21HTTTC; ";
+			document.write(x);
+
+			var y;
+			y=1;
+			document.write("y lần 1 = "+y+"; ");
+
+			y+=2;
+			document.write("y lần 2 = "+y+"; ");
+
+			y*=3;
+			document.write("y lần 3 = "+y+"; ");
+		</script>
 	</body>
 </html>
