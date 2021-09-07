@@ -4,7 +4,76 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script type="text/javascript">
-			<!-- window.alert("Hello world!!!"); -->
+			var i=1;
+			
+			if (i==0) {
+				window.alert("Hello world!!!");
+			}
+
+			for (var j = 0; j <=5; j++) {
+				if (j>3) {
+					break;
+				}
+
+				document.write("Lần lặp thứ "+(j+1)+" thì j = "+j+" ; <br/>");
+			}
+
+			<!-- Thử tối ưu hóa lại hàm; để truyền số "21" nó hiện ra là "Hai một"-->
+			function chuyen_so_thanh_chu(k) {
+				var m;
+				if (k==0) {
+					m="Không";
+				}
+
+				if (k==1) {
+					m="Một";
+				}
+
+				if (k==2) {
+					m="Hai";
+				}
+
+				return m;
+			}
+
+			function chuyen_doi(k) {
+				var ket_qua;
+
+				if (k<=9) {
+					<!-- Xử lý phần giá trị truyền vào 1 chữ số -->
+
+					ket_qua = chuyen_so_thanh_chu(k);
+				} else {
+					<!-- Xử lý phần giá trị truyền vào 2 chữ số -->
+
+					var don_vi = k%10;
+					var chuc = (k-don_vi)/10;
+
+					ket_qua = chuyen_so_thanh_chu(chuc) + " " +chuyen_so_thanh_chu(don_vi);
+				}
+
+				return ket_qua;
+			}
+
+			document.write(chuyen_doi(0) + "; <br>");
+			document.write(chuyen_doi(2) + "; <br>");
+			document.write(chuyen_doi(20) + "; <br>");
+			document.write(chuyen_doi(12) + "; <br>");
+
+			<!-- KHAI BAO 1 DOI TUONG XE HOI-->
+			var xe_hoi = {mau_sac:"Do", hang:"Mazda", dong_xe:"Mazda CX5", nam_san_xuat:"2021"};
+
+			<!-- TRUY CAP CAC THUOC TINH CUA DOI TUONG XE HOI, IN KET QUA RA MAN HINH -->
+			document.write("Xe cua ban la: "+ xe_hoi.dong_xe + "; nam dang ky: " + xe_hoi.nam_san_xuat + "; màu: " + xe_hoi["mau_sac"]);
+
+			<!-- KHAI BAO 1 MANG TRONG JAVASCRIPT -->
+			var nam_gioi_lop_K22HTTTC = ["Nghiem Anh Dung", "Le Thanh Dat", "Duong Duc Hai", "Pham Tuan"];
+			
+			<!-- TRUY CAP DEN TUNG PHAN TU TRONG MANG, IN KET QUA LEN MAN HINH -->
+			document.write("<br> Ban thu 1 trong danh sach: " + nam_gioi_lop_K22HTTTC[0]);
+			document.write("<br> Ban thu 2 trong danh sach: " + nam_gioi_lop_K22HTTTC[1]);
+			document.write("<br> Ban thu 3 trong danh sach: " + nam_gioi_lop_K22HTTTC[2]);
+			document.write("<br> Ban thu 4 trong danh sach: " + nam_gioi_lop_K22HTTTC[3]);
 		</script>
 		<script type="text/javascript" src="js/home.js"></script>
 	</head>
