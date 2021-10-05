@@ -1,10 +1,4 @@
 <!doctype html>
-<!--
-	Lamoda by TEMPLATE STOCK
-	templatestock.co @templatestock
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-
 
 <html lang="en-gb" class="no-js">
   <head>
@@ -27,19 +21,10 @@
     <link href="css/magnific-popup.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/animate.css" />
     <link rel="stylesheet" href="css/etlinefont.css">
-    <link href="css/style.css" type="text/css"  rel="stylesheet"/>
-
-
-   <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
-    
+    <link href="css/style.css" type="text/css"  rel="stylesheet"/>    
 	<body  data-spy="scroll" data-target="#main-menu">
 
   <?php 
-<<<<<<< HEAD
     // Câu lệnh dùng để in dữ liệu ra màn hình  
     echo "Chào mừng bạn đã ghé thăm Website của tôi";
 
@@ -183,20 +168,6 @@
     // IN tên của xe mà các bạn mới khởi tạo
     echo "<br>Tên xe mà bạn vừa đề cập là: ".$mazda->ten_xe;
   ?>
-
-=======
-    echo "Chào mừng bạn đã ghé thăm Website của tôi";
-  ?>
-
-  <?php 
-    echo "<br><br>Hiện tại là ngày: ".date("d-m-Y H:i:s");
-
-    echo "<br>".substr("Le Cong Hoa", 8, 3);
-  ?>
-
- 
-
->>>>>>> 61ce33b286cd5afe6725c20742d4f3667242d767
   <!--Start Page loader -->
   <div id="pageloader">   
         <div class="loader">
@@ -1681,9 +1652,7 @@ viverra purus tristique.</p>
    <!-- Start blog-->
    <section id="blog" class="section">
        <div class="container">
-           <div class="row">
-           
-<<<<<<< HEAD
+           <div class="row">           
                <div class="title-box text-center">
                   <h2 class="title">Tin tức mới nhất</h2>
                </div>
@@ -1716,63 +1685,13 @@ viverra purus tristique.</p>
                            <h5><?php echo date("d/M/Y H:i", strtotime($row["ngay_dang"]));?> / <?php echo $row["so_lan_doc"];?> lượt đọc</h5>
                            <p><?php echo $row["mo_ta"];?></p>
                            <a href="blog.html" class="btn btn-gray-border">Chi tiết</a>
-=======
-                 <div class="title-box text-center">
-                    <h2 class="title">Tin tức mới nhất</h2>
-                 </div>
-                
-               <!-- Start Blog item #1-->
-               <div class="col-md-4">
-                   <div class="blog-post">
-                         <div class="post-media">
-							 <img src="images/blog/blog1.jpg" alt="">
-                         </div>
-                       <div class="post-desc">
-                           <h4>consectetur adipisicing Inventore</h4>
-                           <h5><?php echo date("d/M/Y");?> / 5 Comments</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde</p>
-                            <a href="blog.html" class="btn btn-gray-border">Read More</a>
-                       </div>
-                   </div>
-               </div>
-               
-               <!-- Start Blog item #2-->
-               <div class="col-md-4">
-                   <div class="blog-post">
-                         <div class="post-media">
-							 <img src="images/blog/blog2.jpg" alt="">
-                         </div>
-                       <div class="post-desc">
-                           <h4>consectetur adipisicing Inventore</h4>
-                            <h5><?php echo date("d/M/Y");?> / 3 Comments</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde</p>
-                            <a href="blog.html" class="btn btn-gray-border">Read More</a>
-                       </div>
-                   </div>
-               </div>
-               
-               <!-- Start Blog item #3-->
-               <div class="col-md-4">
-                   <div class="blog-post">
-                         <div class="post-media">
-							 <img src="images/blog/blog3.jpg" alt="">
-                         </div>
-                       <div class="post-desc">
-                           <h4>consectetur adipisicing Inventore</h4>
-                             <h5><?php echo date("d/M/Y");?> / 11 Comments</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde</p>
-                        <a href="blog.html" class="btn btn-gray-border">Read More</a>
->>>>>>> 61ce33b286cd5afe6725c20742d4f3667242d767
                        </div>
                    </div>
                </div>
 
-<<<<<<< HEAD
                <?php
                   }
                ;?>
-=======
->>>>>>> 61ce33b286cd5afe6725c20742d4f3667242d767
            </div> <!--/.row-->
        </div> <!--/.container-->
    </section>
@@ -1788,7 +1707,6 @@ viverra purus tristique.</p>
                   	<div class="title-box text-center white">
                         <h2 class="title">What clients say.</h2>
                      </div>
-<<<<<<< HEAD
                     <div class="col-md-10 col-md-offset-1">
                         <div class="testimonials-carousel">
                         <?php 
@@ -1816,32 +1734,6 @@ viverra purus tristique.</p>
                         <?php
                             }
                         ;?>
-=======
-
-              
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="testimonials-carousel">
-                            <!--Start Testimonial item #1-->
-                            <div class="items">
-                                <div class="desc">habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet habitant morbi tristique senectus et netus et malesuada fames ac quam egestas.</div>
-                                <img src="images/testimonial/testimonial-img1.jpg" class="testimonial-pic" alt="testimonials" />
-                                <div class="name">Andrew Doe</div>
-                            </div>
-                            
-                              <!--Start Testimonial item #2-->
-                            <div class="items">
-                                <div class="desc">habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet habitant morbi tristique senectus et netus et malesuada fames ac quam egestas.</div>
-                                <img src="images/testimonial/testimonial-img2.jpg" class="testimonial-pic" alt="testimonials" />
-                                <div class="name">Andrew Doe</div>
-                            </div>
-                            
-                              <!--Start Testimonial item #3-->
-                            <div class="items">
-                                <div class="desc">habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet habitant morbi tristique senectus et netus et malesuada fames ac quam egestas.</div>
-                                <img src="images/testimonial/testimonial-img1.jpg" class="testimonial-pic" alt="testimonials" />
-                                <div class="name">Andrew Doe</div>
-                            </div>
->>>>>>> 61ce33b286cd5afe6725c20742d4f3667242d767
                         </div>
                     </div>
                 </div> <!--/.row-->
@@ -2031,4 +1923,3 @@ viverra purus tristique.</p>
     
  </body>
 </html>
-
