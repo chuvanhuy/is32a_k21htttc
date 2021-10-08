@@ -20,7 +20,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Quản trị hệ thống</title>
+        <title>Cập nhật tin tức</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -84,74 +84,53 @@
                     </div>
                 </nav>
             </div>
+            <?php 
+                // 1. Kết nối đến MÁY CHỦ DỮ LIỆU & ĐẾN CSDL mà các bạn muốn lấy, thêm, sửa, xóa DỮ LIỆU
+                $ket_noi = mysqli_connect("localhost", "root", "", "k22htttc_db");
+
+                // 2. Viết câu lệnh truy vấn để lấy ra dữ liệu mong muốn (TIN TỨC đã lưu trong CSDL)
+                $id_tin_tuc = $_GET["id"];
+
+                $sql = "
+                          SELECT * 
+                          FROM tbl_tin_tuc
+                          WHERE id_tin_tuc = '".$id_tin_tuc."'
+                ";
+
+                // 3. Thực thi câu lệnh lấy dữ liệu mong muốn
+                $tin_tuc = mysqli_query($ket_noi, $sql);
+
+                // 4. Hiển thị ra dữ liệu mà các bạn vừa lấy
+                $row = mysqli_fetch_array($tin_tuc);
+            ;?>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Quản trị người dùng</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.php">Quản trị hệ thống</a></li>
-                            <li class="breadcrumb-item active">Quản trị người dùng</li>
-                        </ol>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Danh sách người dùng
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th>Tên người dùng</th>
-                                            <th>Email</th>
-                                            <th>Điện thoại</th>
-                                            <th>Sửa</th>
-                                            <th>Xóa</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th>Tên người dùng</th>
-                                            <th>Email</th>
-                                            <th>Điện thoại</th>
-                                            <th>Sửa</th>
-                                            <th>Xóa</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    <?php 
-                                        // 1. Kết nối đến MÁY CHỦ DỮ LIỆU & ĐẾN CSDL mà các bạn muốn lấy, thêm, sửa, xóa DỮ LIỆU
-                                        $ket_noi = mysqli_connect("localhost", "root", "", "k22htttc_db");
-
-                                        // 2. Viết câu lệnh truy vấn để lấy ra dữ liệu mong muốn (NGƯỜI DÙNG đã lưu trong CSDL)
-                                        $sql = "
-                                                  SELECT * 
-                                                  FROM tbl_nguoi_dung 
-                                                  ORDER BY id_nguoi_dung DESC
-                                        ";
-
-                                        // 3. Thực thi câu lệnh lấy dữ liệu mong muốn
-                                        $khach_hang = mysqli_query($ket_noi, $sql);
-
-                                        // 4. Hiển thị ra dữ liệu mà các bạn vừa lấy
-                                        $i=0;
-                                        while ($row = mysqli_fetch_array($khach_hang)) {
-                                            $i++;
-                                    ;?>
-                                        <tr>
-                                            <td><?php echo $i;?></td>
-                                            <td><?php echo $row["ten_nguoi_dung"];?></td>
-                                            <td><?php echo $row["email"];?></td>
-                                            <td><?php echo $row["dien_thoai"];?></td>
-                                            <td>Sửa</td>
-                                            <td>Xóa</td>
-                                        </tr>
-                                    <?php
-                                        }
-                                    ;?>
-                                    </tbody>
-                                </table>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Cập nhật tin tức</h3></div>
+                                    <div class="card-body">
+                                        <form method="POST" action="tin_tuc_sua_thuc_hien.php">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="Tiêu đề" name="txtTieuDe" value="<?php echo $row["tieu_de"];?>" />
+                                                <label for="inputEmail">Tiêu đề</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="Mô tả" name="txtMoTa" value="<?php echo $row["mo_ta"];?>" />
+                                                <label for="inputEmail">Mô tả</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="Nội dung" name="txtNoiDung" value="<?php echo $row["noi_dung"];?>" />
+                                                <label for="inputEmail">Nội dung</label>
+                                            </div>
+                                            <div class="mt-4 mb-0">
+                                                <input type="hidden" name="txtID" value="<?php echo $row["id_tin_tuc"];?>">
+                                                <input type="submit" name="btnSubmit" value="Cập nhật">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
