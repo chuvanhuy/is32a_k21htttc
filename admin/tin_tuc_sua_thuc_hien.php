@@ -27,8 +27,8 @@
     </head>
     <body class="sb-nav-fixed">
         <?php 
-            // 1. Kết nối đến MÁY CHỦ DỮ LIỆU & ĐẾN CSDL mà các bạn muốn lấy, thêm, sửa, xóa DỮ LIỆU
-            $ket_noi = mysqli_connect("localhost", "root", "", "k22htttc_db");
+            // 1. Load file cấu hình để kết nối đến máy chủ CSDL, CSDL
+            include("../config.php");
 
             // 2. Viết câu lệnh truy vấn để thêm mới dữ liệu vào bảng TIN TỨC trong CSDL
             $id_tin_tuc = $_POST['txtID'];
@@ -36,11 +36,34 @@
             $mo_ta = $_POST['txtMoTa'];
             $noi_dung = $_POST['txtNoiDung'];
 
-            $sql = "
-                UPDATE `tbl_tin_tuc` 
-                SET `tieu_de` = '".$tieu_de."', `mo_ta` = '".$mo_ta."', `noi_dung` = '".$noi_dung."' 
-                WHERE `tbl_tin_tuc`.`id_tin_tuc` = '".$id_tin_tuc."'
-            ";
+            // Lấy ra được thông tin & xử lý liên quan đến bức ẢNH MINH HỌA được SUBMIT từ form TIN TỨC THÊM MỚI
+            $noi_se_luu_buc_anh_tren_website = "../images/".basename($_FILES["txtAnhMinhHoa"]["name"]);
+            $luu_file_anh_tam = $_FILES["txtAnhMinhHoa"]["tmp_name"];
+
+            // UPLOAD bức ảnh tạm này lên MÁY CHỦ WEB
+            $ket_qua_up_anh = move_uploaded_file($luu_file_anh_tam, $noi_se_luu_buc_anh_tren_website);
+
+            // Ghi nhận thông tin bức ẢNH MINH HỌA được UPLOAD lên hệ thống hay chưa?
+            if(!$ket_qua_up_anh) {
+                $anh_minh_hoa = NULL;
+            } else {
+                $anh_minh_hoa = basename($_FILES["txtAnhMinhHoa"]["name"]);
+            }
+
+            if ($anh_minh_hoa==NULL) {
+                $sql = "
+                    UPDATE `tbl_tin_tuc` 
+                    SET `tieu_de` = '".$tieu_de."', `mo_ta` = '".$mo_ta."', `noi_dung` = '".$noi_dung."' 
+                    WHERE `tbl_tin_tuc`.`id_tin_tuc` = '".$id_tin_tuc."'
+                ";
+            } else {
+                $sql = "
+                    UPDATE `tbl_tin_tuc` 
+                    SET `tieu_de` = '".$tieu_de."', `mo_ta` = '".$mo_ta."', `noi_dung` = '".$noi_dung."' , anh_minh_hoa = '".$anh_minh_hoa."'
+                    WHERE `tbl_tin_tuc`.`id_tin_tuc` = '".$id_tin_tuc."'
+                ";
+            }
+            
 
             // 3. Thực thi câu lệnh lấy dữ liệu mong muốn
             $tin_tuc = mysqli_query($ket_noi, $sql);

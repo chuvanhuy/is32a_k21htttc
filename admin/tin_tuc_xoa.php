@@ -27,8 +27,8 @@
     </head>
     <body class="sb-nav-fixed">
         <?php 
-            // 1. Kết nối đến MÁY CHỦ DỮ LIỆU & ĐẾN CSDL mà các bạn muốn lấy, thêm, sửa, xóa DỮ LIỆU
-            $ket_noi = mysqli_connect("localhost", "root", "", "k22htttc_db");
+            // 1. Load file cấu hình để kết nối đến máy chủ CSDL, CSDL
+            include("../config.php");
 
             // 2. Viết câu lệnh truy vấn để thêm mới dữ liệu vào bảng TIN TỨC trong CSDL
             $id_tin_tuc = $_GET["id"];

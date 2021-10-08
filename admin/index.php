@@ -93,8 +93,8 @@
                         </ol>
 
                         <?php 
-                            // 1. Kết nối đến MÁY CHỦ DỮ LIỆU & ĐẾN CSDL mà các bạn muốn lấy, thêm, sửa, xóa DỮ LIỆU
-                            $ket_noi = mysqli_connect("localhost", "root", "", "k22htttc_db");
+                            // 1. Load file cấu hình để kết nối đến máy chủ CSDL, CSDL
+                            include("../config.php");
 
                             // 2. Viết câu lệnh truy vấn để lấy ra dữ liệu mong muốn (TIN TỨC đã lưu trong CSDL)
                             $sql1 = "

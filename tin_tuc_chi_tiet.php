@@ -120,6 +120,25 @@
 		</section>
 		<!-- /page-header -->
 		
+       <?php 
+          // 1. Load file cấu hình để kết nối đến máy chủ CSDL, CSDL
+          include("config.php");
+
+          // 2. Viết câu lệnh truy vấn để lấy ra dữ liệu mong muốn (TIN TỨC đã lưu trong CSDL)
+          $id_tin_tuc = $_GET['id'];
+          $sql = "
+                    SELECT * 
+                    FROM tbl_tin_tuc
+                    WHERE id_tin_tuc = '".$id_tin_tuc."'
+          ";
+
+          // 3. Thực thi câu lệnh lấy dữ liệu mong muốn
+          $noi_dung_tin_tuc = mysqli_query($ket_noi, $sql);
+
+          // 4. Hiển thị ra dữ liệu mà các bạn vừa lấy
+          $row = mysqli_fetch_array($noi_dung_tin_tuc)
+       ;?>
+
 		<!--Start blog -->
 		<section class="section">
 			<div class="container">
@@ -129,32 +148,24 @@
 						<div class="post-content">	
 							<!-- Post Image -->
 							<div class="post-img">
-								<img src="images/blog/blog1.jpg" alt="">
+								<img src="<?php echo $row['anh_minh_hoa'] ? 'images/'.$row['anh_minh_hoa'] : 'images/blog/blog1.jpg' ;?>" alt="">
 							</div>
 							<!-- /Post Image-->
 							
 							<!-- Post Meta-->
 							<div class="post-meta">
                                 <ul class="list-inline">
-                                  <li><a href="#"><i class="fa fa-calendar"></i>12 March, 2014</a> </li>
-                                  <li><a href="#"><i class="fa fa-user"></i>by Admin</a></li>
-                                  <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a> </li>
+                                  <li><?php echo $row['ngay_dang'];?></li>
+                                  <li><a href="#"><i class="fa fa-comments"></i><?php echo $row['so_lan_doc'];?> lượt đọc</a> </li>
                                 </ul>
 							</div>
 							<!-- /Post Meta-->
 							
 							<!-- Post Description -->
 							<div class="post-description">							
-								<h3>Duis aliquet elementum enim, sit amet</h3>
-								<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in molestie neque, eget posuere risus. In mauris orci, imperdiet quis hendrerit eget, dapibus sed nisi. Vivamus pretium, ante nec facilisis convallis, lorem lectus porta mi, ut pharetra purus augue a est. Integer pharetra tempus mauris, eu rutrum ante gravida ac. Duis aliquet elementum enim, sit amet congue neque faucibus id. Nunc sit amet massa aliquam, auctor libero eget, euismod augue. 
-								</p>
-                                
-                                <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde voluptatibus quos expedita autem qui vitae corrupti exercitationem facilis nihil atquea</blockquote>
-                                
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde voluptatibus quos expedita autem qui vitae corrupti exercitationem facilis nihil atque!</p>
-                                
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde voluptatibus quos expedita autem qui vitae corrupti exercitationem facilis nihil atque!</p>
+								<h3><?php echo $row['tieu_de'];?></h3>
+                                <blockquote><?php echo $row['mo_ta'];?></blockquote>                                
+                                <p><?php echo $row['noi_dung'];?></p>
 							</div>
 							<!-- /Post Description -->
                           					

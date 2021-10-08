@@ -10,8 +10,6 @@
 		
 	<!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      
-
      <!--styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -23,151 +21,6 @@
     <link rel="stylesheet" href="css/etlinefont.css">
     <link href="css/style.css" type="text/css"  rel="stylesheet"/>    
 	<body  data-spy="scroll" data-target="#main-menu">
-
-  <?php 
-    // Câu lệnh dùng để in dữ liệu ra màn hình  
-    echo "Chào mừng bạn đã ghé thăm Website của tôi";
-
-    # Câu lệnh in ra ngày giờ ở thời điểm hiện tại
-    echo "<br><br>Hiện tại là ngày: ".date("d-m-Y H:i:s");
-
-    /* Câu lệnh này dùng để xử lý sâu ký tự */
-    echo "<br>".substr("Le Cong Hoa", 8, 3);
-
-    // Khai báo biến tên lớp trong PHP; in ra & thử check xem biến đó có kiểu dữ liệu là gì?
-    $ten_lop = "K22HTTTC";
-    $tuoi = 21;
-    $nam_sinh = 2001;
-
-    # Thử nghiệm câu lệnh print_r
-    print_r("<br>".$ten_lop);
-
-    # Thử check xem kiểu dữ liệu của nó là gì
-    print_r("<br>".gettype($ten_lop));
-    print_r("<br>".gettype($tuoi));
-    print_r("<br>".gettype($nam_sinh));
-
-    # Thử 1 biến đã được gán giá trị hay chưa?
-    if (isset($nam_sinh)==1) {
-      echo "<br> Biến $nam_sinh đã được gán giá trị";
-    } else {
-      echo "<br> Biến $nam_sinh chưa được gán giá trị";
-    }
-
-    unset($nam_sinh);
-    if (isset($nam_sinh)==1) {
-      echo "<br> Biến $nam_sinh đã được gán giá trị";
-    } else {
-      echo "<br> Biến $nam_sinh chưa được gán giá trị";
-    }
-
-    $nam_sinh = 2001;
-    if (empty($nam_sinh)==1) {
-      echo "Biến NĂM SINH rỗng";
-    } else {
-      echo "Biến NĂM SINH không rỗng";
-    }
-    
-    $diem_chuan = 26.3;
-    echo "<br><br>"."Điểm chuẩn vào Khoa HTTTQL năm 2021 là: ".$diem_chuan." điểm."."<br><br>";
-
-    $ket_qua_tuyen_sinh;  // Đỗ hoặc Trượt
-    $diem_thi = 25;
-
-    // Cách 1: Sử dụng tới 5 dòng mã lệnh
-    // if ($diem_thi>=$diem_chuan) {
-    //   $ket_qua_tuyen_sinh = "Đỗ";
-    // } else {
-    //   $ket_qua_tuyen_sinh = "Trượt";
-    // }
-
-    // Cách 2: Sử dụng 1 dòng mã lệnh là giải quyết được
-    $ket_qua_tuyen_sinh = $diem_thi>=$diem_chuan ? "Đỗ" : "Trượt";
-
-    echo "<br><br>Kết quả thi đại học của bạn là: ".$ket_qua_tuyen_sinh."<br><br>";
-    
-    // Thử nghiệm vòng lặp FOR trong PHP
-    for ($i=1; $i <= 5; $i++) { 
-      echo "<br>Lần lặp thứ ".$i.", giá trị = ".$i*$i;
-    }
-
-    // Thử nghiệm câu lệnh var_dump();
-    var_dump($ten_lop);
-
-    // Khởi tạo 1 mảng 1 chiều trong PHP chỉ có giá trị
-    $sinh_vien = array("Trần Thu An", "Nguyễn Ngọc Anh", "Nguyễn Linh Chi", "Trần Quốc Cường", "Hà Anh Tuấn");
-
-    // Cách 1: In thông tin của các phần tử trong mảng thông qua truy cập trực tiếp từng phần tử
-    echo "<br>Bạn sinh viên viên thứ 1 là: ".$sinh_vien[0];
-    echo "<br>Bạn sinh viên viên thứ 2 là: ".$sinh_vien[1];
-    echo "<br>Bạn sinh viên viên thứ 3 là: ".$sinh_vien[2];
-    echo "<br>Bạn sinh viên viên thứ 4 là: ".$sinh_vien[3];
-    echo "<br>Bạn sinh viên viên thứ 5 là: ".$sinh_vien[4];
-
-    // Cách 2: In thông tin của các phần tử trong mảng thông qua vòng lặp FOR
-    $so_luong_phan_tu = count($sinh_vien);
-    echo "<br>Mảng SINH VIÊN gồm: ".$so_luong_phan_tu." phần tử";
-
-    for ($i=0; $i < $so_luong_phan_tu; $i++) { 
-      echo "<br>Cách 2: Thông tin tạn sinh viên thứ ".($i+1)." là: ".$sinh_vien[$i];
-    }
-
-    // Khởi tạo 1 mảng 1 chiều trong PHP nhưng nó có chỉ số
-    $hoc_vien = array("gioi_tinh" => "Nam", "so_thich" => "Nghe nhạc, Chơi thể thao", "thu_nhap" => "10.000.000 đ/tháng", "phuong_tien_di_chuyen" => "Xe máy Air Blate");
-
-    // Cách 1: In thông tin của mảng trên thông qua truy xuất trực tiếp từng phần tử trong mảng
-    echo "<br>Thông tin của bạn Học viên X có giới tính là".$hoc_vien["gioi_tinh"]." ; sở thích là: ".$hoc_vien["so_thich"]." ; có thu nhập thụ động ngay từ khi còn ngồi trên ghế nhà trường là: ".$hoc_vien["thu_nhap"]." ; có phương tiện di chuyển là: ".$hoc_vien["phuong_tien_di_chuyen"];
-
-    // Cách 2: In thông tin của mảng trên thông qua vòng lặp FOR
-    foreach ($hoc_vien as $key => $value) {
-      echo "<br>Bạn học viên có ".$key." là: ".$value;
-    }
-
-    /*
-    Khai báo 1 mảng 2 chiều trong PHP
-    Tên Sản phẩm          Số lượng còn          Giá bán
-    iPhone 13             5                     33.000.000đ
-    iPad 4                20                    18.000.000đ
-    Macbook Pro M1        2                     31.500.000đ  
-    */
-
-    // Khai báo mảng 2 chiều này
-    $san_pham = array(
-        array("iPhone 13", 5, 33000000),
-        array("iPad 4", 20, 18000000),
-        array("Macbook Pro M1", 2, 31500000)
-    );
-
-    // In ra thông tin liên quan đến từng sản phẩm trong mảng 2 chiều trên "Tên sản phẩm (Giá bán)"
-    echo "<br>Sản phẩm thứ 1: ".$san_pham[0][0]." (".$san_pham[0][2].")";
-    echo "<br>Sản phẩm thứ 2: ".$san_pham[1][0]." (".$san_pham[1][2].")";
-    echo "<br>Sản phẩm thứ 3: ".$san_pham[2][0]." (".$san_pham[2][2].")";
-
-    // Thử khai bảo 1 LỚP (CLASS) trong PHP
-    class xe_hoi
-    {
-      # Thuộc tính trong lớp XE HƠI
-      public $hang_xe;
-      public $ten_xe;
-      public $mau_sac;
-      public $nam_san_xuat;
-
-      # Phương thức 1: tác dụng nó sẽ gán giá trị cho thuộc tính $ten_xe
-      function khai_bao_ten_xe($ten_xe)
-      {
-        $this->ten_xe = $ten_xe;
-      }
-    }
-
-    // Khởi tạo 1 đối tượng XE HƠI từ lớp XE HƠI mà chúng ta mới tạo ra
-    $mazda = new xe_hoi();
-
-    // Thực hiện phương thức Khai báo tên xe
-    $mazda->khai_bao_ten_xe("Mazda CX8");
-
-    // IN tên của xe mà các bạn mới khởi tạo
-    echo "<br>Tên xe mà bạn vừa đề cập là: ".$mazda->ten_xe;
-  ?>
   <!--Start Page loader -->
   <div id="pageloader">   
         <div class="loader">
@@ -1658,14 +1511,15 @@ viverra purus tristique.</p>
                </div>
 
                <?php 
-                  // 1. Kết nối đến MÁY CHỦ DỮ LIỆU & ĐẾN CSDL mà các bạn muốn lấy, thêm, sửa, xóa DỮ LIỆU
-                  $ket_noi = mysqli_connect("localhost", "root", "", "k22htttc_db");
+                  // 1. Load file cấu hình để kết nối đến máy chủ CSDL, CSDL
+                  include("config.php");
 
                   // 2. Viết câu lệnh truy vấn để lấy ra dữ liệu mong muốn (TIN TỨC đã lưu trong CSDL)
                   $sql = "
                             SELECT * 
                             FROM tbl_tin_tuc 
                             ORDER BY id_tin_tuc DESC
+                            LIMIT 3
                   ";
 
                   // 3. Thực thi câu lệnh lấy dữ liệu mong muốn
@@ -1678,13 +1532,13 @@ viverra purus tristique.</p>
                <div class="col-md-4">
                    <div class="blog-post">
                          <div class="post-media">
-                            <img src="images/blog/blog1.jpg" alt="">
+                            <img src="<?php echo $row['anh_minh_hoa'] ? 'images/'.$row['anh_minh_hoa'] : 'images/blog/blog1.jpg' ;?>" alt="">
                          </div>
                        <div class="post-desc">
                            <h4><?php echo $row["tieu_de"];?></h4>
                            <h5><?php echo date("d/M/Y H:i", strtotime($row["ngay_dang"]));?> / <?php echo $row["so_lan_doc"];?> lượt đọc</h5>
                            <p><?php echo $row["mo_ta"];?></p>
-                           <a href="blog.html" class="btn btn-gray-border">Chi tiết</a>
+                           <a href="tin_tuc_chi_tiet.php?id=<?php echo $row["id_tin_tuc"];?>" class="btn btn-gray-border">Chi tiết</a>
                        </div>
                    </div>
                </div>
@@ -1710,8 +1564,8 @@ viverra purus tristique.</p>
                     <div class="col-md-10 col-md-offset-1">
                         <div class="testimonials-carousel">
                         <?php 
-                            // 1. Kết nối đến MÁY CHỦ DỮ LIỆU & ĐẾN CSDL mà các bạn muốn lấy, thêm, sửa, xóa DỮ LIỆU
-                            $ket_noi = mysqli_connect("localhost", "root", "", "k22htttc_db");
+                            // 1. Load file cấu hình để kết nối đến máy chủ CSDL, CSDL
+                            include("config.php");
 
                             // 2. Viết câu lệnh truy vấn để lấy ra dữ liệu mong muốn (NGƯỜI DÙNG đã lưu trong CSDL)
                             $sql = "

@@ -24,6 +24,16 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+          tinymce.init({
+            selector: '#txtMoTa'
+          });
+
+          tinymce.init({
+            selector: '#txtNoiDung'
+          });
+        </script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -92,17 +102,21 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Thêm mới tin tức</h3></div>
                                     <div class="card-body">
-                                        <form method="POST" action="tin_tuc_them_moi_thuc_hien.php">
+                                        <form method="POST" action="tin_tuc_them_moi_thuc_hien.php" enctype="multipart/form-data">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="text" placeholder="Tiêu đề" name="txtTieuDe" />
                                                 <label for="inputEmail">Tiêu đề</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="text" placeholder="Mô tả" name="txtMoTa" />
+                                                <input class="form-control" id="txtAnhMinhHoa" type="file" placeholder="Ảnh minh họa" name="txtAnhMinhHoa" />
+                                                <label for="txtAnhMinhHoa">Ảnh minh họa</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <textarea placeholder="Mô tả" name="txtMoTa" id="txtMoTa"></textarea>
                                                 <label for="inputEmail">Mô tả</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="text" placeholder="Nội dung" name="txtNoiDung" />
+                                                <textarea placeholder="Nội dung" name="txtNoiDung" id="txtNoiDung"></textarea>
                                                 <label for="inputEmail">Nội dung</label>
                                             </div>
                                             <div class="mt-4 mb-0">
